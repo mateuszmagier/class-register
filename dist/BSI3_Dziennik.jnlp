@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="BSI3_Dziennik.jnlp">
+  <information>
+    <title>BSI3_Dziennik</title>
+    <vendor>HP</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="BSI3_Dziennik.jar" size="18539" download="eager" />
+    <jar href="lib\JUnitParams-1.1.0.jar" size="67132" download="eager" />
+    <jar href="lib\commons-io-2.6.jar" size="214788" download="eager" />
+    <jar href="lib\mockito-all-1.10.19.jar" size="1234599" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="BSI3_Dziennik" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="bsi3_dziennik.BSI3_Dziennik"  name="BSI3_Dziennik" />
+  <update check="always"/>
+</jnlp>

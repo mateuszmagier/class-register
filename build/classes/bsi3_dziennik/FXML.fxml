@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="513.0" prefWidth="752.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bsi3_dziennik.FXMLController">
+    <stylesheets>
+        <URL value="@fxml.css" />
+    </stylesheets>
+   <children>
+      <TabPane prefHeight="513.0" prefWidth="752.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Studenci">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="studentsTableView" layoutX="14.0" layoutY="14.0" prefHeight="201.0" prefWidth="384.0">
+                          <columns>
+                            <TableColumn fx:id="surnameColumn" prefWidth="133.0" text="Nazwisko" />
+                            <TableColumn fx:id="nameColumn" prefWidth="117.0" text="Imię" />
+                              <TableColumn fx:id="studentNumberColumn" minWidth="8.0" prefWidth="125.0" text="Nr indeksu" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="surnameTextField" layoutX="14.0" layoutY="290.0" prefHeight="25.0" prefWidth="125.0" />
+                        <TextField fx:id="nameTextField" layoutX="150.0" layoutY="290.0" prefHeight="25.0" prefWidth="110.0" />
+                        <TextField fx:id="studentNumberTextField" layoutX="269.0" layoutY="290.0" prefHeight="25.0" prefWidth="119.0" />
+                        <Label layoutX="14.0" layoutY="270.0" text="NOWY STUDENT:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="addStudentButton" layoutX="398.0" layoutY="290.0" mnemonicParsing="false" onAction="#addStudentAction" prefHeight="25.0" prefWidth="70.0" text="Dodaj" />
+                        <Button fx:id="deleteStudentButton" layoutX="15.0" layoutY="230.0" mnemonicParsing="false" onAction="#deleteStudentAction" prefHeight="25.0" prefWidth="80.0" text="Usuń" />
+                        <TextField fx:id="surnameEditTextField" layoutX="14.0" layoutY="345.0" prefHeight="25.0" prefWidth="125.0" />
+                        <TextField fx:id="nameEditTextField" layoutX="150.0" layoutY="345.0" prefHeight="25.0" prefWidth="110.0" />
+                        <TextField fx:id="studentNumberEditTextField" layoutX="269.0" layoutY="345.0" prefHeight="25.0" prefWidth="119.0" />
+                        <Label layoutX="14.0" layoutY="325.0" text="EDYCJA:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="updateStudentButton" layoutX="398.0" layoutY="345.0" mnemonicParsing="false" onAction="#updateStudentAction" prefHeight="25.0" prefWidth="70.0" text="Zatwierdź" />
+                        <Button fx:id="prepareUpdateStudentButton" layoutX="103.0" layoutY="230.0" mnemonicParsing="false" onAction="#prepareUpdateStudentAction" prefHeight="25.0" prefWidth="80.0" text="Edytuj" />
+                        <Label layoutX="14.0" layoutY="391.0" text="STATYSTYKI STUDENTA:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="415.0" text="Liczba nieobecności:" />
+                        <Label fx:id="studentAbsencesNumberLabel" layoutX="130.0" layoutY="415.0" />
+                        <Button layoutX="191.0" layoutY="230.0" mnemonicParsing="false" onAction="#showStudentStatsAction" text="Pokaż statystyki" />
+                        <ComboBox fx:id="newMarkComboBox" layoutX="528.0" layoutY="32.0" prefHeight="25.0" prefWidth="94.0" />
+                        <Button layoutX="630.0" layoutY="32.0" mnemonicParsing="false" onAction="#addMarkAction" text="Dodaj nową" />
+                        <Label layoutX="532.0" layoutY="15.0" text="NOWA OCENA:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="532.0" layoutY="66.0" text="EDYCJA OCENY:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="editMarkComboBox" layoutX="531.0" layoutY="83.0" prefHeight="25.0" prefWidth="94.0" />
+                        <Button layoutX="633.0" layoutY="83.0" mnemonicParsing="false" onAction="#editMarkAction" prefHeight="25.0" prefWidth="76.0" text="Zatwierdź" />
+                        <Button layoutX="531.0" layoutY="123.0" mnemonicParsing="false" onAction="#removeMarkAction" prefHeight="25.0" prefWidth="76.0" text="Usuń" />
+                        <Button layoutX="303.0" layoutY="230.0" mnemonicParsing="false" onAction="#showMarksAction" text="Wyświetl oceny" />
+                        <ListView fx:id="marksListView" layoutX="425.0" layoutY="15.0" prefHeight="200.0" prefWidth="87.0" />
+                        <Button layoutX="531.0" layoutY="155.0" mnemonicParsing="false" onAction="#prepareEditMarkAction" prefHeight="25.0" prefWidth="76.0" text="Edytuj" />
+                        <Label layoutX="14.0" layoutY="438.0" text="Średnia ocen:" />
+                        <Label fx:id="studentMarksAvgLabel" layoutX="130.0" layoutY="438.0" />
+                        <Label layoutX="14.0" layoutY="460.0" text="Średnia ocen grupy:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="groupMarksAvgLabel" layoutX="135.0" layoutY="460.0" />
+                        <Button layoutX="569.0" layoutY="285.0" mnemonicParsing="false" onAction="#importStudentsFromXmlAction" prefHeight="61.0" prefWidth="166.0" text="Importuj z XML" />
+                        <Button layoutX="569.0" layoutY="358.0" mnemonicParsing="false" onAction="#exportStudentsToXmlAction" prefHeight="61.0" prefWidth="166.0" text="Eksportuj do XML" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Zajęcia">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="lessonsTableView" layoutX="14.0" layoutY="14.0" prefHeight="213.0" prefWidth="201.0">
+                          <columns>
+                            <TableColumn fx:id="dateColumn" prefWidth="199.0" text="Data" />
+                          </columns>
+                        </TableView>
+                        <Label layoutX="222.0" layoutY="14.0" text="NOWE ZAJĘCIA:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="datePicker" layoutX="222.0" layoutY="38.0" prefHeight="25.0" prefWidth="149.0" />
+                        <Button layoutX="380.0" layoutY="38.0" mnemonicParsing="false" onAction="#addLessonAction" prefHeight="25.0" prefWidth="87.0" text="Dodaj" />
+                        <Label layoutX="14.0" layoutY="238.0" text="OBECNI:" textFill="#3300ff">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="presentStudentsTableView" layoutX="14.0" layoutY="255.0" prefHeight="201.0" prefWidth="337.0">
+                           <columns>
+                              <TableColumn fx:id="presentSurnameColumn" prefWidth="118.0" text="Nazwisko" />
+                              <TableColumn fx:id="presentNameColumn" prefWidth="95.0" text="Imię" />
+                              <TableColumn fx:id="presentStudentNumberColumn" minWidth="8.0" prefWidth="123.0" text="Nr indeksu" />
+                           </columns>
+                        </TableView>
+                        <TableView fx:id="absentStudentsTableView" layoutX="401.0" layoutY="255.0" prefHeight="201.0" prefWidth="337.0">
+                           <columns>
+                              <TableColumn fx:id="absentSurnameColumn" prefWidth="118.0" text="Nazwisko" />
+                              <TableColumn fx:id="absentNameColumn" prefWidth="95.0" text="Imię" />
+                              <TableColumn fx:id="absentStudentNumberColumn" minWidth="8.0" prefWidth="123.0" text="Nr indeksu" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="400.0" layoutY="238.0" text="NIEOBECNI:" textFill="RED">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <Button layoutX="355.0" layoutY="303.0" mnemonicParsing="false" onAction="#makeStudentAbsentAction" prefHeight="40.0" prefWidth="42.0" text="&gt;&gt;" />
+                        <Button layoutX="355.0" layoutY="356.0" mnemonicParsing="false" onAction="#makeStudentPresentAction" prefHeight="40.0" prefWidth="42.0" text="&lt;&lt;" />
+                        <Button layoutX="222.0" layoutY="75.0" mnemonicParsing="false" onAction="#showPresencesListAction" text="Pokaż listę obecności" />
+                        <Button layoutX="570.0" layoutY="88.0" mnemonicParsing="false" onAction="#exportToXMLAction" prefHeight="49.0" prefWidth="155.0" text="Eksportuj do XML" />
+                        <Button layoutX="570.0" layoutY="26.0" mnemonicParsing="false" onAction="#importFromXMLAction" prefHeight="49.0" prefWidth="154.0" text="Importuj z XML" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
